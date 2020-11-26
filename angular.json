@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "markets"
+  "defaultProject": "markets",
+  "cli": {
+    "analytics": "eff23bdc-36e4-43ba-a945-70221d3e7e33"
+  }
 }
