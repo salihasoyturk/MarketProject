@@ -6,6 +6,8 @@ const app = express();
 
 var cors = require('cors')
 app.use(cors())
+
+
 app.get("/product", async (req, res, next) => {
   const client = new Client({
     host: "localhost",
