@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PsqlService } from '../psql.service';
 
 @Component({
@@ -8,46 +8,40 @@ import { PsqlService } from '../psql.service';
   styleUrls: ['./toolbar.component.css'],
 })
 export class ToolbarComponent implements OnInit {
-  public get psqlService(): PsqlService {
-    return this._psqlService;
-  }
-  public set psqlService(value: PsqlService) {
-    this._psqlService = value;
-  }
-  host = 'http://localhost:5000/';
-  data?: any;
-  branchData: any;
+  @Output() openBranchTable: EventEmitter<any> = new EventEmitter();
+  @Output() openProductTable: EventEmitter<any> = new EventEmitter();
+  @Output() openStockTable: EventEmitter<any> = new EventEmitter();
 
+  constructor(
+    private httpClient: HttpClient,
+    private psqlService: PsqlService
+  ) {}
 
-  constructor(private httpClient: HttpClient, private _psqlService: PsqlService) {
-    // this.onBranch();
-    // this.onProduct();
-    // this.onStock();
+  ngOnInit(): void {}
+
+  openBranch(): void {
+    this.openBranchTable.emit(true);
   }
 
-  ngOnInit(): void {
-    this.branchData = this.psqlService.branchData;
+  openProduct(): void {
+    this.openProductTable.emit(true);
   }
 
-  onBranch(): void {
-    const request = this.httpClient.get('http://localhost:5000/branch').pipe();
-    request.subscribe((res) => {
-      console.log(res);
-
-    });
-  }
-
-  onProduct(): void {
-    const request = this.httpClient.get('http://localhost:5000/product').pipe();
-    request.subscribe((res) => {
-      console.log(res);
-    });
-  }
-
-  onStock(): void {
-    const request = this.httpClient.get('http://localhost:5000/stock').pipe();
-    request.subscribe((res) => {
-      console.log(res);
-    });
+  openStock(): void {
+    this.openStockTable.emit(true);
   }
 }
+
+// const request = this.httpClient
+// .get('http://localhost:5000/product-table')
+// .pipe();
+// request.subscribe((res) => {
+// console.log(res);
+// });
+
+// const request = this.httpClient
+//       .get('http://localhost:5000/stock-table')
+//       .pipe();
+//     request.subscribe((res) => {
+//       console.log(res);
+//     });

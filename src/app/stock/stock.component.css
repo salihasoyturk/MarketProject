@@ -1,0 +1,45 @@
+.stock {
+  margin: 50px;
+
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+.table {
+  width: 1000px;
+}
+td,
+th {
+  padding: 20px;
+  border: none;
+}
+.table thead th {
+  border: none;
+}
+thead > tr {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  background: #5a6066;
+}
+tbody > tr:hover {
+  background: gray;
+  color: white;
+}
+
+thead,
+tbody {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  font-size: bolder;
+}
+td {
+  border-bottom: 2px solid #dee2e6;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+}

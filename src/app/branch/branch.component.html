@@ -1,20 +1,22 @@
-<div class="details">
-  <table class="table" *ngFor="let item of data">
+<div class="branch">
+  <table class="table">
     <thead>
-      <tr >
+      <tr>
         <th scope="col"></th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">LOCATION</th>
       </tr>
     </thead>
     <tbody>
-      <tr class="list" *ngFor="let item of data; let i = index">
+      <tr class="list" *ngFor="let item of data2">
         <td scope="row"></td>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
+        <td>{{ item.branch_id }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.location }}</td>
       </tr>
     </tbody>
+    <button (click)="closeBranch()">X</button>
+    <button (click)="addBranch()">+</button>
   </table>
 </div>

@@ -1,5 +1,6 @@
 <nav class="navbar navbar-dark bg-dark">
-  <div class="branch" (click)="onBranch()">BRANCHS</div>
-  <div class="product" (click)="onProduct()">PRODUCTS</div>
-  <div class="stock" (click)="onStock()">STOCKS</div>
+  <div class="branch" [routerLink]="['/branch-table']" (click)="openBranch()">BRANCHS</div>
+  <div class="product" [routerLink]="['/product-table']" (click)="openProduct()">PRODUCTS</div>
+  <div class="stock" [routerLink]="['/stock-table']" (click)="openStock()">STOCKS</div>
+
 </nav>

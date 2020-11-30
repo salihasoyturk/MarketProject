@@ -1,4 +1,3 @@
-<app-toolbar></app-toolbar>
-<app-branch></app-branch>
-<app-product></app-product>
-<app-stock></app-stock>
+<app-toolbar (openProductTable)=productTableOpen($event) (openBranchTable)=branchTableOpen($event) (openStockTable)=stockTableOpen($event)></app-toolbar>
+
+<router-outlet></router-outlet>
