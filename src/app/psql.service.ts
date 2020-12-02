@@ -2,6 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface IForm {
+  branch_id?: number;
+  name?: string;
+  location?: string;
+}
+
 export interface branchModel {
   success: boolean;
   data: Array<Object>;
@@ -15,6 +21,7 @@ export interface stockModel {
   success: boolean;
   data: Array<Object>;
 }
+let baseUrl = 'http://localhost:5000';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +42,16 @@ export class PsqlService {
   getStock(): Observable<stockModel> {
     return this.httpClient.get<stockModel>('http://localhost:5000/stock-table');
   }
+  deleteBranch(data2: any): Observable<branchModel> {
+    console.log(data2);
+
+    return this.httpClient.delete<branchModel>(
+      `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.branch_id}`
+    );
+
+    // this.httpClient.delete(`${baseUrl}/${id}`);
+  }
+  data: IForm[] = [];
 }
 
 // export interface IBranch {

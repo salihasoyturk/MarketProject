@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormControl } from '@angular/forms';
 import { PsqlService } from '../psql.service';
 
 @Component({
@@ -7,10 +8,18 @@ import { PsqlService } from '../psql.service';
   styleUrls: ['./branch.component.css'],
 })
 export class BranchComponent implements OnInit {
+  modalOpenState = false;
+  disableSelect = new FormControl(false);
+  baseUrl = 'http://localhost:5000/branch';
+  currentUser: any;
+
+
+
   @Input() modalCloseInput: EventEmitter<any> = new EventEmitter<any>();
   @Output() openBranchTable: EventEmitter<any> = new EventEmitter();
+  @Output() userInfo: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(public psqlService: PsqlService) {}
+  constructor(private fb: FormBuilder, public psqlService: PsqlService) {}
   data2: any;
 
   ngOnInit() {
@@ -22,10 +31,19 @@ export class BranchComponent implements OnInit {
     });
   }
 
-  closeBranch(): void {
-    this.openBranchTable.emit(false);
-    console.log('branch tablosu kapandı');
+  delete(item: any) {
+    console.log(item);
+    item.tableName = 'branch';
+    item.columnName = 'branch_id';
+    this.psqlService.deleteBranch(item).subscribe((res) => {
+      console.log(res);
+    });
 
+    // console.log('sildi',`${this.baseUrl}/${branch_id}`);
+  }
+
+  edit(item: any): void {
+    this.userInfo.emit(item);
   }
 
   addBranch(): void {

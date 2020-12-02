@@ -1,0 +1,30 @@
+<form class="modal-info" [formGroup]="myForm">
+  <div class="giris">
+    <input formControlName="branch_id" type="number" placeholder="ID" />
+    <input
+      formControlName="name"
+      type="text"
+      placeholder="Name"
+      minlength="3"
+    />
+    <input
+      formControlName="location"
+      type="text"
+      placeholder="Location"
+      minlength="3"
+    />
+    <div class="modal-buttons">
+      <button
+        class="update"
+        type="submit"
+        title="Update"
+        (click)="modalUpdate()"
+      >
+        UPDATE
+      </button>
+      <button class="close" type="submit" title="Close" (click)="modalClose()">
+        CLOSE
+      </button>
+    </div>
+  </div>
+</form>

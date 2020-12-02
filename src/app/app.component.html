@@ -1,3 +1,17 @@
-<app-toolbar (openProductTable)=productTableOpen($event) (openBranchTable)=branchTableOpen($event) (openStockTable)=stockTableOpen($event)></app-toolbar>
+<app-toolbar
+  (openProductTable)="productTableOpen($event)"
+  (openBranchTable)="branchTableOpen($event)"
+  (openStockTable)="stockTableOpen($event)"
+></app-toolbar>
 
+<app-branch (userInfo)="selectedUser($event)" ></app-branch>
+
+<div class="modal" *ngIf="modalOpenState">
+  <app-modal
+    class="modal-content"
+    [updateUser]="currentUser"
+    (modalCloseOutput)="closeModal()"
+    (modalUpdateOutput)="updateModal()"
+  ></app-modal>
+</div>
 <router-outlet></router-outlet>
