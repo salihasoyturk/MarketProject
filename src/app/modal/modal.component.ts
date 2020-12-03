@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { IForm, PsqlService } from '../psql.service';
+import { FormControl, FormGroup } from '@angular/forms';
+import {  IForm, PsqlService } from '../psql.service';
 
 @Component({
   selector: 'app-modal',
@@ -8,20 +8,21 @@ import { IForm, PsqlService } from '../psql.service';
   styleUrls: ['./modal.component.css'],
 })
 export class ModalComponent implements OnInit {
+  
   myForm!: FormGroup;
   disableSelect = new FormControl(false);
 
-  @Input() updateUser: IForm = {};
+  @Input() updateBranchInfo: IForm = {};
   @Output() modalCloseOutput: EventEmitter<any> = new EventEmitter<any>();
   @Output() modalUpdateOutput: EventEmitter<any> = new EventEmitter<any>();
   constructor(public psqlService: PsqlService) {}
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
-      name: new FormControl(this.updateUser.name),
-      location: new FormControl(this.updateUser.location),
+      name: new FormControl(this.updateBranchInfo.name),
+      location: new FormControl(this.updateBranchInfo.location),
       branch_id: new FormControl({
-        value: this.updateUser.branch_id,
+        value: this.updateBranchInfo.branch_id,
         disabled: true,
       }),
     });
@@ -30,8 +31,8 @@ export class ModalComponent implements OnInit {
     console.log('form kapandı');
     this.modalCloseOutput.emit();
   }
-  modalUpdate() {
-    console.log('form kapandı');
+  updateBranch() {
+    console.log('güncellendi');
     const allData = this.psqlService.data;
     const newData: IForm = this.myForm.getRawValue();
     const selectedData = allData.find(
@@ -48,8 +49,12 @@ export class ModalComponent implements OnInit {
       selectedData.name = newData.name;
       selectedData.location = newData.location;
       selectedData.branch_id = newData.branch_id;
+      
+      
     }
 
     this.modalCloseOutput.emit();
+    console.log(newData);
   }
+ 
 }

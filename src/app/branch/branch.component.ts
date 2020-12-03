@@ -13,14 +13,14 @@ export class BranchComponent implements OnInit {
   baseUrl = 'http://localhost:5000/branch';
   currentUser: any;
 
-
-
   @Input() modalCloseInput: EventEmitter<any> = new EventEmitter<any>();
   @Output() openBranchTable: EventEmitter<any> = new EventEmitter();
-  @Output() userInfo: EventEmitter<any> = new EventEmitter<any>();
+  @Output() branchInfo: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private fb: FormBuilder, public psqlService: PsqlService) {}
   data2: any;
+
+  currentBranch: any;
 
   ngOnInit() {
     this.psqlService.getBranch().subscribe((res) => {
@@ -30,7 +30,7 @@ export class BranchComponent implements OnInit {
       }
     });
   }
-
+  
   delete(item: any) {
     console.log(item);
     item.tableName = 'branch';
@@ -43,10 +43,10 @@ export class BranchComponent implements OnInit {
   }
 
   edit(item: any): void {
-    this.userInfo.emit(item);
+    this.branchInfo.emit(item);
   }
 
-  addBranch(): void {
-    console.log('eklendi');
-  }
+  // add(): void {
+  // this.addBranch.emit();
+  // }
 }

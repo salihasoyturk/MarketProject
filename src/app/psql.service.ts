@@ -50,7 +50,12 @@ export class PsqlService {
     );
 
     // this.httpClient.delete(`${baseUrl}/${id}`);
+
   }
+// updateBranch(item: any):Observable<branchModel>{
+//   const data2 = newData
+// }
+
   data: IForm[] = [];
 }
 

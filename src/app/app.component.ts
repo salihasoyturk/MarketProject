@@ -12,11 +12,11 @@ export class AppComponent {
   productTable = false;
   stockTable = false;
   modalOpenState = false;
-  currentUser: any;
+  currentBranch: any;
 
-  selectedUser(item: any) {
+  selectedBranch(item: any) {
     this.modalOpenState = true;
-    this.currentUser = item;
+    this.currentBranch = item;
     console.log(item);
   }
   branchTableOpen(event: any) {

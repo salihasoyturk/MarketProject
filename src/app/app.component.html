@@ -3,13 +3,12 @@
   (openBranchTable)="branchTableOpen($event)"
   (openStockTable)="stockTableOpen($event)"
 ></app-toolbar>
-
-<app-branch (userInfo)="selectedUser($event)" ></app-branch>
+<app-branch (branchInfo)="selectedBranch($event)"></app-branch>
 
 <div class="modal" *ngIf="modalOpenState">
   <app-modal
     class="modal-content"
-    [updateUser]="currentUser"
+    [updateBranchInfo]="currentBranch"
     (modalCloseOutput)="closeModal()"
     (modalUpdateOutput)="updateModal()"
   ></app-modal>
