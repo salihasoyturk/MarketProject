@@ -44,6 +44,7 @@ export class PsqlService {
     );
 
     // this.httpClient.delete(`${baseUrl}/${id}`);
+
   }
   updateBranch(data2: any): Observable<branchModel> {
     console.log('güncellendi');

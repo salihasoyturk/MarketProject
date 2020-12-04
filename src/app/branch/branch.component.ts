@@ -29,6 +29,8 @@ export class BranchComponent implements OnInit {
   ) {}
   data2: any;
 
+  currentBranch: any;
+
   ngOnInit() {
     this.psqlService.getBranch().subscribe((res) => {
       if (res && res.success) {
