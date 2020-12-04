@@ -1,8 +1,14 @@
 .branch {
   margin: 50px;
   display: flex;
-  justify-content: left;
+  flex-direction: row;
   align-items: center;
+}
+.left {
+  width: 1000px;
+}
+.right {
+  width: 45%;
 }
 .table {
   width: 1000px;
@@ -42,3 +48,5 @@ td {
   text-transform: uppercase;
   cursor: pointer;
 }
+
+

@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PsqlService } from '../psql.service';
 
 @Component({
@@ -13,13 +14,19 @@ export class BranchComponent implements OnInit {
   baseUrl = 'http://localhost:5000/branch';
   currentUser: any;
 
-
+  myForm!: FormGroup;
 
   @Input() modalCloseInput: EventEmitter<any> = new EventEmitter<any>();
   @Output() openBranchTable: EventEmitter<any> = new EventEmitter();
   @Output() userInfo: EventEmitter<any> = new EventEmitter<any>();
+  IForm: any;
 
-  constructor(private fb: FormBuilder, public psqlService: PsqlService) {}
+  constructor(
+    private fb: FormBuilder,
+    public psqlService: PsqlService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
   data2: any;
 
   ngOnInit() {
@@ -43,10 +50,12 @@ export class BranchComponent implements OnInit {
   }
 
   edit(item: any): void {
-    this.userInfo.emit(item);
+    this.router.navigate(['edit'], { relativeTo: this.route });
+    console.log('edit tablosu geldi');
   }
 
   addBranch(): void {
-    console.log('eklendi');
+    console.log('add tablosu geldi');
+    this.router.navigate(['add'], { relativeTo: this.route });
   }
 }

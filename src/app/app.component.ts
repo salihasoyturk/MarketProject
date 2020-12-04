@@ -11,14 +11,9 @@ export class AppComponent {
   branchTable = false;
   productTable = false;
   stockTable = false;
-  modalOpenState = false;
-  currentUser: any;
 
-  selectedUser(item: any) {
-    this.modalOpenState = true;
-    this.currentUser = item;
-    console.log(item);
-  }
+  constructor() {}
+
   branchTableOpen(event: any) {
     this.branchTable = event;
   }
@@ -27,11 +22,5 @@ export class AppComponent {
   }
   stockTableOpen(event: any) {
     this.stockTable = event;
-  }
-  updateModal() {
-    this.modalOpenState = false;
-  }
-  closeModal() {
-    this.modalOpenState = false;
   }
 }
