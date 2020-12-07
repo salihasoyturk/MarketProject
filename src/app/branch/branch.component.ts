@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { PsqlService } from '../psql.service';
 
 @Component({
@@ -9,37 +9,23 @@ import { PsqlService } from '../psql.service';
   styleUrls: ['./branch.component.css'],
 })
 export class BranchComponent implements OnInit {
-  modalOpenState = false;
-  disableSelect = new FormControl(false);
   baseUrl = 'http://localhost:5000/branch';
-  currentUser: any;
-
-  myForm!: FormGroup;
-
-  @Input() modalCloseInput: EventEmitter<any> = new EventEmitter<any>();
-  @Output() openBranchTable: EventEmitter<any> = new EventEmitter();
-  @Output() userInfo: EventEmitter<any> = new EventEmitter<any>();
-  IForm: any;
-
   constructor(
-    private fb: FormBuilder,
     public psqlService: PsqlService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
   data2: any;
-
-  currentBranch: any;
-
+  selectData: any;
+  infoSubject = new BehaviorSubject({});
   ngOnInit() {
     this.psqlService.getBranch().subscribe((res) => {
       if (res && res.success) {
         this.data2 = res.data;
-        console.log(this.data2);
       }
     });
   }
-
+  //DELETE TUŞUNA BASINCA
   delete(item: any) {
     console.log(item);
     item.tableName = 'branch';
@@ -50,12 +36,15 @@ export class BranchComponent implements OnInit {
 
     // console.log('sildi',`${this.baseUrl}/${branch_id}`);
   }
-
-  edit(item: any): void {
-    this.router.navigate(['edit'], { relativeTo: this.route });
+  //EDİT TUŞUNA BASILINCA
+  edit(item: any): any {
     console.log('edit tablosu geldi');
+    this.selectData = item;
+    this.router.navigate(['edit'], { relativeTo: this.route });
+    console.log(item);
+    this.infoSubject.next(item);
   }
-
+  //ADD TUŞUNA BASILINCA
   addBranch(): void {
     console.log('add tablosu geldi');
     this.router.navigate(['add'], { relativeTo: this.route });

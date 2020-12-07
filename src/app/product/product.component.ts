@@ -7,7 +7,7 @@ import { PsqlService } from '../psql.service';
   styleUrls: ['./product.component.css'],
 })
 export class ProductComponent implements OnInit {
-  // @Input() modalCloseInput: EventEmitter<any> = new EventEmitter<any>();
+
 
   constructor(private psqlService: PsqlService) {}
   data2: any;

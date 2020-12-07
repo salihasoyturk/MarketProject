@@ -21,6 +21,8 @@ let baseUrl = 'http://localhost:5000';
   providedIn: 'root',
 })
 export class PsqlService {
+  data2: any;
+
   constructor(private httpClient: HttpClient) {}
 
   getBranch(): Observable<branchModel> {
@@ -37,17 +39,16 @@ export class PsqlService {
     return this.httpClient.get<stockModel>('http://localhost:5000/stock-table');
   }
   deleteBranch(data2: any): Observable<branchModel> {
-    console.log(data2);
-
     return this.httpClient.delete<branchModel>(
       `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.branch_id}`
     );
 
     // this.httpClient.delete(`${baseUrl}/${id}`);
-
   }
+
+  //SERVER'LA BAĞLANTILI UPDATE KISMI
   updateBranch(data2: any): Observable<branchModel> {
-    console.log('güncellendi');
+
     const body = {
       name: data2.name,
       location: data2.location,
