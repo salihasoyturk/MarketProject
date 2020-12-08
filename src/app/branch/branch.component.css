@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  font-weight: 500;
 }
 .left {
   width: 1000px;
@@ -16,18 +17,22 @@
 }
 td,
 th {
-  padding: 20px;
+  padding: 10px;
   border: none;
 }
 .table thead th {
   border: none;
-  vertical-align: text-bottom;
   cursor: auto;
+  /* padding: 20px 20px 20px 0; */
+  vertical-align: inherit;
+  padding: 25px 25px 25px 10px;
+  
+  
 }
+
 thead > tr {
   color: white;
   font-size: 18px;
-  font-weight: bold;
   border: none;
   background: #5a6066;
 }
@@ -41,7 +46,6 @@ tbody {
   width: 100%;
   max-width: 100%;
   margin-bottom: 1rem;
-  background-color: transparent;
   color: rgb(0, 0, 0);
   font-size: bolder;
 }
@@ -63,6 +67,7 @@ td {
   font-size: 18px;
   border-radius: 3px;
   outline: none;
+  font-weight: 500;
 }
 .buttons:hover {
   background-color: rgb(224 224 224);
@@ -72,16 +77,19 @@ td {
 .add {
   display: flex;
   float: right;
-  margin-top: 15px;
-  margin-right: 20px;
+  width: 36px;
   height: 50px;
   cursor: pointer;
   border-color: #d0cccc;
   background-color: #d0cccc;
   box-shadow: 1px 1px 10px #313030;
-  font-size: 35px;
+  font-size: 29px;
+  text-shadow: 1px 1px 5px rgb(124, 124, 124);
   border-radius: 3px;
   outline: none;
+  margin-top: 15px;
+  margin-right: 15px;
+  font-weight: 500;
 }
 .add:hover {
   background-color: rgb(224 224 224);
