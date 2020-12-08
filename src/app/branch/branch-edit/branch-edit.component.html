@@ -1,5 +1,5 @@
-<form class="edit-branch" [formGroup]="myForm" >
-  <div class="form-group" >
+<form class="edit-branch" [formGroup]="myForm">
+  <div class="form-group">
     <input formControlName="branch_id" type="number" class="form-control" />
     <small class="form-text text-muted"></small>
   </div>
@@ -11,11 +11,7 @@
     <input formControlName="location" type="text" class="form-control" />
   </div>
   <div class="buttons">
-    <button  class="btn btn-primary" (click)="branchUpdate()">
-      UPDATE</button
-    ><br />
-    <button  class="btn btn-primary" (click)="branchEditClose()">
-      CLOSE
-    </button>
+    <button class="btn btn-primary" (click)="branchUpdate()">UPDATE</button>
+    <button class="btn btn-primary" (click)="branchEditClose()">CLOSE</button>
   </div>
 </form>

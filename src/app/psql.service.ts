@@ -48,13 +48,12 @@ export class PsqlService {
 
   //SERVER'LA BAĞLANTILI UPDATE KISMI
   updateBranch(data2: any): Observable<branchModel> {
-
     const body = {
       name: data2.name,
       location: data2.location,
     };
-    return this.httpClient.post<stockModel>(
-      'http://localhost:5000/stock-table',
+    return this.httpClient.post<branchModel>(
+      'http://localhost:5000/branch/' + data2.branch_id,
       body
     );
   }

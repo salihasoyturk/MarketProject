@@ -1,31 +1,40 @@
-<div class="branch" >
-  <div class="left"><table class="table">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">ID</th>
-        <th scope="col">NAME</th>
-        <th scope="col">LOCATION</th>
-        <br />
-        <button (click)="addBranch()" routerLink="/add">ADD BRANCH</button>
+<div class="branch">
+  <div class="left">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          <th scope="col">ID</th>
+          <th scope="col">NAME</th>
+          <th scope="col">LOCATION</th>
+          <button class="add" (click)="addBranch()" routerLink="/add">+</button>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="list" *ngFor="let item of data2">
+          <td scope="row"></td>
+          <td>{{ item.branch_id }}</td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.location }}</td>
 
-        <br />
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="list" *ngFor="let item of data2">
-        <td scope="row"></td>
-        <td>{{ item.branch_id }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.location }}</td>
-        <br />
-        <button title="Delete" (click)="delete(item) " >DELETE</button>
-        <button title="Edit" (click)="edit(item)" routerLink="/edit">EDIT</button>
-      </tr>
-    </tbody>
-  </table></div>
-  <div class="right" >
+          <td>
+            <button title="Delete" class="buttons" (click)="delete(item)">
+              DELETE
+            </button>
+            <button
+              title="Edit"
+              class="buttons"
+              (click)="edit(item)"
+              routerLink="/edit"
+            >
+              EDIT
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="right">
     <router-outlet></router-outlet>
   </div>
 </div>
-

@@ -9,6 +9,7 @@
 }
 .right {
   width: 45%;
+  height: 55%;
 }
 .table {
   width: 1000px;
@@ -20,6 +21,8 @@ th {
 }
 .table thead th {
   border: none;
+  vertical-align: text-bottom;
+  cursor: auto;
 }
 thead > tr {
   color: white;
@@ -29,7 +32,7 @@ thead > tr {
   background: #5a6066;
 }
 tbody > tr:hover {
-  background: gray;
+  background: rgb(165, 165, 165);
   color: white;
 }
 
@@ -47,6 +50,41 @@ td {
   font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
+  height: 25px;
+  vertical-align: text-bottom;
 }
-
-
+.buttons {
+  margin: 10px;
+  width: 100px;
+  height: 40px;
+  border-color: #d0cccc;
+  background-color: #d0cccc;
+  box-shadow: 1px 1px 10px #313030;
+  font-size: 18px;
+  border-radius: 3px;
+  outline: none;
+}
+.buttons:hover {
+  background-color: rgb(224 224 224);
+  cursor: pointer;
+  border-color: rgb(224 224 224);
+}
+.add {
+  display: flex;
+  float: right;
+  margin-top: 15px;
+  margin-right: 20px;
+  height: 50px;
+  cursor: pointer;
+  border-color: #d0cccc;
+  background-color: #d0cccc;
+  box-shadow: 1px 1px 10px #313030;
+  font-size: 35px;
+  border-radius: 3px;
+  outline: none;
+}
+.add:hover {
+  background-color: rgb(224 224 224);
+  cursor: pointer;
+  border-color: rgb(224 224 224);
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { BranchComponent } from '../branch.component';
 
 @Component({
   selector: 'app-branch-add',
@@ -6,13 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./branch-add.component.css'],
 })
 export class BranchAddComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private router: Router,
+    public branchCompenent: BranchComponent
+  ) {}
 
   ngOnInit(): void {}
   newBranchAdd() {
-    console.log('yeni branch eklendi');
+    console.log('Yeni branch eklendi');
+    this.router.navigateByUrl('branch-table');
   }
   branchAddClose() {
-    console.log('add tablosu kapandı ');
+    this.router.navigateByUrl('branch-table');
+    console.log('Eklenme yapılmadı');
   }
 }

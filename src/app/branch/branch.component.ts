@@ -19,13 +19,17 @@ export class BranchComponent implements OnInit {
   selectData: any;
   infoSubject = new BehaviorSubject({});
   ngOnInit() {
+    this.get();
+  }
+  //DELETE TUŞUNA BASINCA
+  get() {
     this.psqlService.getBranch().subscribe((res) => {
       if (res && res.success) {
         this.data2 = res.data;
       }
+      console.log('Branch güncellendi');
     });
   }
-  //DELETE TUŞUNA BASINCA
   delete(item: any) {
     console.log(item);
     item.tableName = 'branch';

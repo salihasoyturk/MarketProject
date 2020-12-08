@@ -1,7 +1,8 @@
-import { Component, OnInit, ɵɵresolveBody } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { branchModel, PsqlService } from 'src/app/psql.service';
+import { Router } from '@angular/router';
+import { PsqlService } from 'src/app/psql.service';
 import { BranchComponent } from '../branch.component';
 
 @Component({
@@ -17,8 +18,11 @@ export class BranchEditComponent implements OnInit {
   });
 
   disableSelect = new FormControl(true);
+
+
   constructor(
     private formBuilder: FormBuilder,
+    private router: Router,
     private fb: FormBuilder,
     public psqlService: PsqlService,
     public branchCompenent: BranchComponent
@@ -36,12 +40,28 @@ export class BranchEditComponent implements OnInit {
 
   //EDİT FORMUNU KAPATMAK İÇİN
   branchEditClose() {
-    console.log('branch edit kapandı');
+    this.router.navigateByUrl('branch-table');
+    console.log('Değişiklik yapılmadı');
   }
   //GÜNCELENEN BRANCH'İ GÖNDERMEK İÇİN
-  branchUpdate(item: any): void {
-    console.log(this.psqlService.updateBranch(item));
+  branchUpdate(): void {
+    const form = { ...this.myForm.value };
 
+    console.log(form);
+
+    const newData = this.psqlService.updateBranch(form).subscribe(
+      (res) => {
+        console.log(res);
+
+        if (res.success && res) {
+          this.branchCompenent.get();
+          this.router.navigateByUrl('branch-table');
+        }
+      },
+      (err: HttpErrorResponse) => {
+        console.log('err', err);
+      }
+    );
     this.myForm.reset();
   }
 }
