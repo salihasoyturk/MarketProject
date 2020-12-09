@@ -41,6 +41,7 @@ export class BranchEditComponent implements OnInit {
   //EDİT FORMUNU KAPATMAK İÇİN
   branchEditClose() {
     this.router.navigateByUrl('branch-table');
+
     console.log('Değişiklik yapılmadı');
   }
   //GÜNCELENEN BRANCH'İ GÖNDERMEK İÇİN

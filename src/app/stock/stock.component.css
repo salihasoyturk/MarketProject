@@ -1,4 +1,4 @@
-.stock {
+/* .stock {
   margin: 50px;
   display: flex;
   justify-content: left;
@@ -42,4 +42,66 @@ td {
   font-size: 18px;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+*/
+
+.branch {
+  margin: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500;
+}
+.left {
+  width: 1000px;
+}
+.right {
+  width: 45%;
+  height: 55%;
+}
+.table {
+  width: 1000px;
+}
+td {
+  padding: 20px;
+  border: none;
+}
+th {
+  padding-left: 20px;
+  border: none;
+}
+
+.table thead th {
+  border: none;
+  cursor: auto;
+  padding: 25px 25px 25px 16px;
+}
+
+thead > tr {
+  color: white;
+  font-size: 18px;
+  border: none;
+  background: #5a6066;
+}
+tbody > tr:hover {
+  background: rgb(165, 165, 165);
+  color: white;
+}
+
+thead,
+tbody {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+  color: rgb(0, 0, 0);
+  font-size: bolder;
+}
+td {
+  border-bottom: 2px solid #dee2e6;
+  font-size: 18px;
+  text-transform: uppercase;
+  cursor: pointer;
+  height: 25px;
+  vertical-align: text-bottom;
 }

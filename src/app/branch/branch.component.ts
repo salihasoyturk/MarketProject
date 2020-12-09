@@ -36,6 +36,7 @@ export class BranchComponent implements OnInit {
     item.columnName = 'branch_id';
     this.psqlService.deleteBranch(item).subscribe((res) => {
       console.log(res);
+      this.get();
     });
 
     // console.log('sildi',`${this.baseUrl}/${branch_id}`);

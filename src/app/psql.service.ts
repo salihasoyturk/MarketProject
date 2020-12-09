@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+export interface newData {
+  name: string;
+  location: string;
+}
 export interface branchModel {
   success: boolean;
   data: Array<Object>;
@@ -36,7 +40,7 @@ export class PsqlService {
     );
   }
   getStock(): Observable<stockModel> {
-    return this.httpClient.get<stockModel>('http://localhost:5000/stock-table');
+    return this.httpClient.get<stockModel>('http://localhost:5000/branch-table');
   }
   deleteBranch(data2: any): Observable<branchModel> {
     return this.httpClient.delete<branchModel>(
@@ -54,6 +58,17 @@ export class PsqlService {
     };
     return this.httpClient.post<branchModel>(
       'http://localhost:5000/branch/' + data2.branch_id,
+      body
+    );
+  }
+  addNewBranch(newData: any): Observable<branchModel> {
+    const body = {
+      name: newData.name,
+      location: newData.location,
+    };
+    console.log(' newData geliyor' + newData);
+    return this.httpClient.post<branchModel>(
+      'http://localhost:5000/branch/' + newData.branch_id,
       body
     );
   }
