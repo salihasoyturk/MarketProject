@@ -33,14 +33,15 @@ button {
   font-weight: 500;
   width: 100px;
   height: 50px;
-  color: rgb(49, 49, 49);
-  border-color: #ffffff;
-  background-color: #ffffff;
+  color: rgb(19, 19, 19) !important;
+  border-color: #ffffff !important;
+  background-color: #ffffff !important;
+  opacity: 1.65 !important;
 }
 button:hover {
-  background-color: rgb(163, 163, 163);
+  background-color: rgb(163, 163, 163) !important;
   cursor: pointer;
-  border-color: rgb(163, 163, 163);
+  border-color: rgb(163, 163, 163) !important;
 }
 input:focus {
   background-color: rgb(255, 255, 255);

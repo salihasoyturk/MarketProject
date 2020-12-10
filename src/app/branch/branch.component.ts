@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { PsqlService } from '../psql.service';
 
 @Component({
@@ -27,7 +27,7 @@ export class BranchComponent implements OnInit {
       if (res && res.success) {
         this.data2 = res.data;
       }
-      console.log('Branch güncellendi');
+      console.log('branch tablosu geldi');
     });
   }
   delete(item: any) {
@@ -36,6 +36,8 @@ export class BranchComponent implements OnInit {
     item.columnName = 'branch_id';
     this.psqlService.deleteBranch(item).subscribe((res) => {
       console.log(res);
+      console.log('branch silindi');
+
       this.get();
     });
 

@@ -2,33 +2,27 @@
   margin: 50px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   font-weight: 500;
 }
-.left {
-  width: 1000px;
-  margin-left: 115px;
-}
-.right {
-  margin-left: 55px;
-  width: 45%;
-  height: 55%;
-}
-.table {
-  width: 100%;
-}
-td {
-  padding: 20px;
-  border: none;
-}
-th {
-  padding-left: 20px;
-  border: none;
-}
 
+
+.table {
+  width: 1000px;
+}
+td,
+th {
+  padding: 10px;
+  border: none;
+}
 .table thead th {
   border: none;
   cursor: auto;
-  padding: 25px 25px 25px 16px;
+  /* padding: 20px 20px 20px 0; */
+  vertical-align: inherit;
+  padding: 25px 25px 25px 10px;
+
+
 }
 
 thead > tr {

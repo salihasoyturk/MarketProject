@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
     this.psqlService.getProduct().subscribe((res) => {
       if (res && res.success) {
         this.data2 = res.data;
-        console.log(this.data2);
+        console.log('product tablosu geldi');
       }
     });
   }

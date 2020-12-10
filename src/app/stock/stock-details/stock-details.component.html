@@ -1,0 +1,22 @@
+<div class="branch">
+  <div class="left">
+    <table class="table" >
+      <thead>
+        <tr>
+          <th class="head" scope="col"></th>
+          <th class="head" scope="col">BRANCH ID</th>
+          <th class="head" scope="col">PRODUCT ID</th>
+          <th class="head" scope="col">TOTAL STOCK</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="list" *ngFor="let item of data2">
+          <td scope="row"></td>
+          <td>{{ item.branch_id }}</td>
+          <td>{{ item.product_id }}</td>
+          <td>{{ item.total_stock }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

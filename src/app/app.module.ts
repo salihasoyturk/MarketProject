@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BranchEditComponent } from './branch/branch-edit/branch-edit.component';
 import { BranchAddComponent } from './branch/branch-add/branch-add.component';
+import { StockDetailsComponent } from './stock/stock-details/stock-details.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { BranchAddComponent } from './branch/branch-add/branch-add.component';
     BranchComponent,
     BranchEditComponent,
     BranchAddComponent,
+    StockDetailsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,18 +1,29 @@
-<div class="head" >NEW BRANCH FORM</div>
-<form class="add-branch"> 
+<div class="head">NEW BRANCH FORM</div>
+<form [formGroup]="myForm" class="add-branch">
   <div class="form-group">
-    <input type="number" class="form-control" placeholder="ADD A BRANCH ID"/>
+    <input
+      formControlName="name"
+      type="text"
+      class="form-control"
+      placeholder="ADD A BRANCH NAME"
+    />
     <small class="form-text text-muted"></small>
   </div>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="ADD A BRANCH NAME" />
-    <small class="form-text text-muted"></small>
-  </div>
-  <div class="form-group">
-    <input type="TEXT" class="form-control" placeholder="ADD A BRANCH LOCATION" />
+    <input
+      formControlName="location"
+      type="TEXT"
+      class="form-control"
+      placeholder="ADD A BRANCH LOCATION"
+    />
   </div>
   <div class="buttons">
-    <button type="submit" class="btn btn-primary" (click)="newBranchAdd()">
+    <button
+      [disabled]="!myForm.valid"
+      type="submit"
+      class="btn btn-primary"
+      (click)="branchAdd()"
+    >
       ADD
     </button>
     <button type="submit" class="btn btn-primary" (click)="branchAddClose()">

@@ -1,4 +1,4 @@
-<div class="branch">
+<div class="stock">
   <div class="left">
     <table class="table">
       <thead>
@@ -10,7 +10,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="list" *ngFor="let item of data2">
+        <tr class="list" *ngFor="let item of data2" (click)="getTotalStock(data2)" routerLink="/details">
           <td scope="row"></td>
           <td>{{ item.branch_id }}</td>
           <td>{{ item.name }}</td>

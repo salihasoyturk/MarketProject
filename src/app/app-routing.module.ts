@@ -4,6 +4,7 @@ import { BranchAddComponent } from './branch/branch-add/branch-add.component';
 import { BranchEditComponent } from './branch/branch-edit/branch-edit.component';
 import { BranchComponent } from './branch/branch.component';
 import { ProductComponent } from './product/product.component';
+import { StockDetailsComponent } from './stock/stock-details/stock-details.component';
 import { StockComponent } from './stock/stock.component';
 
 const routes: Routes = [
@@ -16,7 +17,11 @@ const routes: Routes = [
     ],
   },
   { path: 'product-table', component: ProductComponent },
-  { path: 'stock-table', component: StockComponent },
+  {
+    path: 'stock-table',
+    component: StockComponent,
+    children: [{ path: 'details', component: StockDetailsComponent }],
+  },
 ];
 
 @NgModule({

@@ -39,9 +39,15 @@ export class PsqlService {
       'http://localhost:5000/product-table'
     );
   }
-  getStock(): Observable<stockModel> {
-    return this.httpClient.get<stockModel>('http://localhost:5000/branch-table');
+  getStock(): Observable<branchModel> {
+    return this.httpClient.get<branchModel>(
+      'http://localhost:5000/branch-table'
+    );
   }
+  getStockTotal(): Observable<stockModel> {
+    return this.httpClient.get<stockModel>('http://localhost:5000/stock-table');
+  }
+
   deleteBranch(data2: any): Observable<branchModel> {
     return this.httpClient.delete<branchModel>(
       `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.branch_id}`
@@ -61,14 +67,14 @@ export class PsqlService {
       body
     );
   }
-  addNewBranch(newData: any): Observable<branchModel> {
+  addNewBranch(newData: newData): Observable<branchModel> {
     const body = {
       name: newData.name,
       location: newData.location,
     };
-    console.log(' newData geliyor' + newData);
+    console.log(' newData geliyor');
     return this.httpClient.post<branchModel>(
-      'http://localhost:5000/branch/' + newData.branch_id,
+      'http://localhost:5000/branch/',
       body
     );
   }
