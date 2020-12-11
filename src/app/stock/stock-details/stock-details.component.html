@@ -1,6 +1,6 @@
 <div class="branch">
   <div class="left">
-    <table class="table" >
+    <table class="table">
       <thead>
         <tr>
           <th class="head" scope="col"></th>
@@ -10,10 +10,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="list" *ngFor="let item of data2">
+        <tr class="list" *ngFor="let item of stockComponent.stokList">
           <td scope="row"></td>
           <td>{{ item.branch_id }}</td>
-          <td>{{ item.product_id }}</td>
+          <td>{{ item.product_name }}</td>
           <td>{{ item.total_stock }}</td>
         </tr>
       </tbody>

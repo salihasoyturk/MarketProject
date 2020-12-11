@@ -18,6 +18,7 @@ export class BranchComponent implements OnInit {
   data2: any;
   selectData: any;
   infoSubject = new BehaviorSubject({});
+
   ngOnInit() {
     this.get();
   }

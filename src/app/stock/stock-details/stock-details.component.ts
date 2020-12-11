@@ -22,11 +22,18 @@ export class StockDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.psqlService.getStockTotal().subscribe((res) => {
-      if (res && res.success) {
-        this.data2 = res.data;
-      }
-      console.log();
-    });
+    if (this.stockComponent.stokList) {
+      this.psqlService.getProduct().subscribe((res) => {
+        for (const stok of this.stockComponent.stokList) {
+          const productName = res.data.find(
+            (product) => product.product_id === stok.product_id
+          );
+          if (productName) {
+            stok.product_name = productName.name;
+          }
+        }
+        console.log(this.stockComponent.stokList);
+      });
+    }
   }
 }

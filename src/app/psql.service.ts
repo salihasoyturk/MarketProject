@@ -12,7 +12,14 @@ export interface branchModel {
 }
 export interface productModel {
   success: boolean;
-  data: Array<Object>;
+  data: Product[];
+}
+
+interface Product {
+  name:string;
+  product_id:number;
+  type:string;
+  price:string;
 }
 
 export interface stockModel {
@@ -54,6 +61,16 @@ export class PsqlService {
     );
 
     // this.httpClient.delete(`${baseUrl}/${id}`);
+  }
+  getBranchByID(id: any): Observable<stockModel> {
+    return this.httpClient.get<stockModel>(
+      `http://localhost:5000/branch/${id}/stock`
+    );
+  }
+  getProductByID(id: any): Observable<stockModel> {
+    return this.httpClient.get<stockModel>(
+      `http://localhost:5000/product/${id}/stock`
+    );
   }
 
   //SERVER'LA BAĞLANTILI UPDATE KISMI
