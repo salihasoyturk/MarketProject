@@ -27,7 +27,7 @@ th {
 
 .table thead th {
   border: none;
-  cursor: auto;
+  cursor: pointer;
   padding: 25px 25px 25px 16px;
 }
 
