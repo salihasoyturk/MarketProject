@@ -35,5 +35,18 @@ export class StockDetailsComponent implements OnInit {
         console.log(this.stockComponent.stokList);
       });
     }
+    if (this.stockComponent.stokList) {
+      this.psqlService.getBranch().subscribe((res) => {
+        for (const stok of this.stockComponent.stokList) {
+          const branchName = res.data.find(
+            (branch) => branch.branch_id === stok.branch_id
+          );
+          if (branchName) {
+            stok.branch_name = branchName.name;
+          }
+        }
+        console.log(this.stockComponent.stokList);
+      });
+    }
   }
 }

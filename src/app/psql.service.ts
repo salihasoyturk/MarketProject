@@ -8,18 +8,23 @@ export interface newData {
 }
 export interface branchModel {
   success: boolean;
-  data: Array<Object>;
+  data: Branch[];
 }
 export interface productModel {
   success: boolean;
   data: Product[];
 }
 
+interface Branch {
+  name: string;
+  branch_id: number;
+  location: string;
+}
 interface Product {
-  name:string;
-  product_id:number;
-  type:string;
-  price:string;
+  name: string;
+  product_id: number;
+  type: string;
+  price: string;
 }
 
 export interface stockModel {
