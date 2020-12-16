@@ -10,7 +10,12 @@
         </tr>
       </thead>
       <tbody>
-        <tr class="list" *ngFor="let item of branchList" (click)="getTotalStock(item)" routerLink="/details">
+        <tr
+          class="list"
+          *ngFor="let item of branchList"
+          (click)="getTotalStock(item)"
+          routerLink="/details"
+        >
           <td scope="row"></td>
           <td>{{ item.branch_id }}</td>
           <td>{{ item.name }}</td>

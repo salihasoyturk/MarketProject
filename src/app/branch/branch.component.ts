@@ -28,7 +28,6 @@ export class BranchComponent implements OnInit {
       if (res && res.success) {
         this.data2 = res.data;
       }
-      console.log('branch tablosu geldi');
     });
   }
   delete(item: any) {

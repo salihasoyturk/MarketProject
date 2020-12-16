@@ -18,9 +18,16 @@ const routes: Routes = [
   },
   { path: 'product-table', component: ProductComponent },
   {
-    path: 'stock-table',
+    path: '',
     component: StockComponent,
-    children: [{ path: 'details', component: StockDetailsComponent }],
+    data: { breadcrumb: 'stock-table' },
+    children: [
+      {
+        path: ':branch_id',
+        component: StockDetailsComponent,
+        data: { breadcrumb: '' },
+      },
+    ],
   },
 ];
 

@@ -32,7 +32,6 @@ export class StockDetailsComponent implements OnInit {
             stok.product_name = productName.name;
           }
         }
-        console.log(this.stockComponent.stokList);
       });
     }
     if (this.stockComponent.stokList) {
@@ -45,7 +44,6 @@ export class StockDetailsComponent implements OnInit {
             stok.branch_name = branchName.name;
           }
         }
-        console.log(this.stockComponent.stokList);
       });
     }
   }

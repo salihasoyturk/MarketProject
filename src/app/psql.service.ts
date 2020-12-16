@@ -8,7 +8,7 @@ export interface newData {
 }
 export interface branchModel {
   success: boolean;
-  data: Branch[];
+  data: Array<Branch>;
 }
 export interface productModel {
   success: boolean;
@@ -67,12 +67,12 @@ export class PsqlService {
 
     // this.httpClient.delete(`${baseUrl}/${id}`);
   }
-  getBranchByID(id: any): Observable<stockModel> {
+  getBranchByID(id: number): Observable<stockModel> {
     return this.httpClient.get<stockModel>(
       `http://localhost:5000/branch/${id}/stock`
     );
   }
-  getProductByID(id: any): Observable<stockModel> {
+  getProductByID(id: number): Observable<stockModel> {
     return this.httpClient.get<stockModel>(
       `http://localhost:5000/product/${id}/stock`
     );

@@ -17,7 +17,8 @@ export class ToolbarComponent implements OnInit {
     private psqlService: PsqlService
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   openBranch(): void {
     this.openBranchTable.emit(true);
