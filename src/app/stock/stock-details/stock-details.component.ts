@@ -51,8 +51,13 @@ export class StockDetailsComponent implements OnInit {
     }
   }
   delete(item: any) {
-    item.tableName = 'product';
+    item.tableName = 'stock';
     item.ColumnName = 'product_id';
+    this.psqlService.deleteProduct(item).subscribe((res) => {
+      console.log(res);
+      console.log('branch silindi');
+      this.get();
+    });
   }
   edit(item: any) {}
 }
