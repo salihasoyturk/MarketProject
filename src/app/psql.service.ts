@@ -65,9 +65,11 @@ export class PsqlService {
       `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.branch_id}`
     );
   }
-  deleteProduct(id: number): Observable<stockModel> {
+  deleteProduct(data2: any): Observable<stockModel> {
     return this.httpClient.delete<stockModel>(
-      `http://localhost:5000/stock/${id}/product_id`
+      // `${baseUrl}/${data2.tableName}/${data2.product_id}/${data2.columnName}`
+
+      `http://localhost:5000/stock/product_id/${data2.product_id}`
     );
   }
   getBranchByID(id: number): Observable<stockModel> {

@@ -24,7 +24,8 @@ export class StockDetailsComponent implements OnInit {
   ngOnInit() {
     this.get();
   }
-  get() {
+  get()
+  {
     if (this.stockComponent.stokList) {
       this.psqlService.getProduct().subscribe((res) => {
         for (const stok of this.stockComponent.stokList) {
