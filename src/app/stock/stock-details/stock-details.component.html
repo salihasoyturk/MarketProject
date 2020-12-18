@@ -7,6 +7,7 @@
           <th class="head" scope="col">BRANCH ID</th>
           <th class="head" scope="col">PRODUCT ID</th>
           <th class="head" scope="col">TOTAL STOCK</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -15,6 +16,20 @@
           <td>{{ item.branch_name }}</td>
           <td>{{ item.product_name }}</td>
           <td>{{ item.total_stock }}</td>
+
+          <td>
+            <button title="Delete" class="buttons" (click)="delete(item)">
+              DELETE
+            </button>
+            <button
+              title="Edit"
+              class="buttons"
+              (click)="edit(item)"
+              routerLink="/edit"
+            >
+              EDIT
+            </button>
+          </td>
         </tr>
       </tbody>
     </table>

@@ -22,6 +22,9 @@ export class StockDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.get();
+  }
+  get() {
     if (this.stockComponent.stokList) {
       this.psqlService.getProduct().subscribe((res) => {
         for (const stok of this.stockComponent.stokList) {
@@ -47,4 +50,9 @@ export class StockDetailsComponent implements OnInit {
       });
     }
   }
+  delete(item: any) {
+    item.tableName = 'product';
+    item.ColumnName = 'product_id';
+  }
+  edit(item: any) {}
 }

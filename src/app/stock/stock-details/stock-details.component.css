@@ -4,9 +4,7 @@
   flex-direction: row;
   align-items: center;
   font-weight: 500;
-
 }
-
 
 .table {
   width: 1000px;
@@ -22,8 +20,6 @@ th {
   /* padding: 20px 20px 20px 0; */
   vertical-align: inherit;
   padding: 25px 25px 25px 10px;
-
-
 }
 
 thead > tr {
@@ -52,4 +48,22 @@ td {
   cursor: pointer;
   height: 25px;
   vertical-align: text-bottom;
+}
+
+.buttons {
+  margin: 10px;
+  width: 100px;
+  height: 40px;
+  border-color: #d0cccc;
+  background-color: #d0cccc;
+  box-shadow: 1px 1px 10px #313030;
+  font-size: 18px;
+  border-radius: 3px;
+  outline: none;
+  font-weight: 500;
+}
+.buttons:hover {
+  background-color: rgb(224 224 224);
+  cursor: pointer;
+  border-color: rgb(224 224 224);
 }

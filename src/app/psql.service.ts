@@ -64,8 +64,11 @@ export class PsqlService {
     return this.httpClient.delete<branchModel>(
       `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.branch_id}`
     );
-
-    // this.httpClient.delete(`${baseUrl}/${id}`);
+  }
+  deleteProduct(data2: any): Observable<productModel> {
+    return this.httpClient.get<productModel>(
+      `${baseUrl}/${data2.tableName}/${data2.columnName}/${data2.product_id}`
+    );
   }
   getBranchByID(id: number): Observable<stockModel> {
     return this.httpClient.get<stockModel>(
@@ -101,35 +104,3 @@ export class PsqlService {
     );
   }
 }
-
-// export interface IBranch {
-//   branch_id: number;
-//   name: string;
-//   location?: string;
-// }
-// export interface IProduct {
-//   product_id: number;
-//   name: string;
-//   price?: number;
-//   type?: string;
-// }
-// export interface IStock {
-//   branch_id: number;
-//   product_id: number;
-//   total_stock: number;
-// }
-
-//   public getBranch{}(
-//     return this.httpClient.get/'http://localhost'
-//   )
-// }
-// const dataBranch: IBranch[] = [];
-// const productData: IProduct[] = [];
-// const stockData: IStock[] = []
-
-// const request = this.httpClient
-//   .get('http://localhost:5000/branch-table')
-//   .pipe();
-// request.subscribe((res) => {
-//   console.log(res);
-// });

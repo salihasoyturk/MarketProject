@@ -37,14 +37,11 @@ export class BranchComponent implements OnInit {
     this.psqlService.deleteBranch(item).subscribe((res) => {
       console.log(res);
       console.log('branch silindi');
-
       this.get();
     });
-
-    // console.log('sildi',`${this.baseUrl}/${branch_id}`);
   }
   //EDİT TUŞUNA BASILINCA
-  edit(item: any): any {
+  edit(item: any): void {
     console.log('edit tablosu geldi');
     this.selectData = item;
     this.router.navigate(['edit'], { relativeTo: this.route });
