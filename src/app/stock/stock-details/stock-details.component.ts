@@ -22,10 +22,6 @@ export class StockDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.get();
-  }
-  get()
-  {
     if (this.stockComponent.stokList) {
       this.psqlService.getProduct().subscribe((res) => {
         for (const stok of this.stockComponent.stokList) {
@@ -57,7 +53,6 @@ export class StockDetailsComponent implements OnInit {
     this.psqlService.deleteProduct(item).subscribe((res) => {
       console.log(res);
       console.log('branch silindi');
-      this.get();
     });
   }
   edit(item: any) {}
